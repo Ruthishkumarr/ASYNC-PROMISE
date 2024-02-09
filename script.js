@@ -86,30 +86,32 @@ Promise.all([promise1, promise2, promise3])
 
 // ------------------------------------------------------------------------------------------------------
 
-// Promise.all()
+// Promise.allSettled()
 
 const promise1 = new Promise((resolve, reject) => {
-    if (true) {
-      setTimeout(() => resolve("promise 1 is Resolved"), 3000);
-    } else {
-      reject("promise 1 is Rejected");
-    }
-  });
-  const promise2 = new Promise((resolve, reject) => {
-    if (false) {
-      setTimeout(() => resolve("promise 2 is Resolved"), 3000);
-    } else {
-      reject("promise 2 is Rejected");
-    }
-  });
-  const promise3 = new Promise((resolve, reject) => {
-    if (true) {
-      setTimeout(() => resolve("promise 3 is Resolved"), 3000);
-    } else {
-      reject("promise 3 is Rejected");
-    }
-  });
+  if (true) {
+    setTimeout(() => resolve("promise 1 is Resolved"), 3000);
+  } else {
+    reject("promise 1 is Rejected");
+  }
+});
+const promise2 = new Promise((resolve, reject) => {
+  if (false) {
+    setTimeout(() => resolve("promise 2 is Resolved"), 3000);
+  } else {
+    reject("promise 2 is Rejected");
+  }
+});
+const promise3 = new Promise((resolve, reject) => {
+  if (true) {
+    setTimeout(() => resolve("promise 3 is Resolved"), 3000);
+  } else {
+    reject("promise 3 is Rejected");
+  }
+});
 
-const result = Promise.allSettled([promise1,promise2,promise3]).then((data)=>data.forEach((result)=>console.log(result)));
+const result = Promise.allSettled([promise1, promise2, promise3]).then((data) =>
+  data.forEach((result) => console.log(result))
+);
 
 //-------------------------------------------------------------------------------------------------------------------------------
